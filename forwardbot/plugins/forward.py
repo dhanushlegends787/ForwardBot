@@ -32,7 +32,7 @@ async def handler(event):
         while True:
             r = conv.wait_event(events.NewMessage(chats=event.chat_id))
             r = await r
-            global frcomchannel
+            global fromchannel
             fromchannel = r.message.message.strip()
             if not r.is_reply:
                 await conv.send_message("Please send the message as a reply to the message.")
@@ -157,7 +157,9 @@ async def handler(event):
                         if media_type(message) == type or type == 'All':
                             try:
                                 if media_type(message) == 'Document':
-                                    await client.send_file(tochat, message.document, caption = f"{message.document.file_name}\n\n➠Cʜᴀɴɴᴇʟ : @Tamil_LinkzZ"  )
+                                    logmsg = str(message.file.name)
+                                    caption = str(f"{logmsg}\n\n➠Cʜᴀɴɴᴇʟ : @Tamil_LinkzZ")
+                                    await client.send_file(tochat, message.document, caption ")
                                     try:
                                         if len(str(message.file.name)) <= 95:
                                             print("Succesfully forwarded: " + str(message.file.name))
