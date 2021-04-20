@@ -32,6 +32,11 @@
         "description": "Users who can use the bot",
         "value": ""
       },
+      "cap": {
+        "description": "Enter caption",
+        "value": "",
+        "required": false
+      },
       "ENV": {
         "description": "Dont Do Anything",
         "value": "True",
