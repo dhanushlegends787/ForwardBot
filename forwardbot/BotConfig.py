@@ -5,6 +5,7 @@ class Config(object):
     BOT_TOKEN = environ.get("BOT_TOKEN", None)
     STRING_SESSION = environ.get("STRING", None)
     SUDO_USERS = environ.get("SUDO_USERS", None)
+    cap = environ.get("SUDO_USERS", None)
     COMMAND_HAND_LER = environ.get("COMMAND_HAND_LER", "^/")
     HELP_MSG = """
     The Commands in the bot are:
