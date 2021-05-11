@@ -161,9 +161,9 @@ async def handler(event):
                                     fileename = logmsg.replace("@HEVC_moviesz",  "")
                                     fileename = fileename.replace("_",  " ")
                                     fileename = fileename.replace(".mkv", "")
-                                    print(dir(message))
+                                    print(dir(message.document))
                                     cap = str(f"**{fileename}\n\n⭕️ @HEVC_Moviesz\n\n⭕️ @Tamil_LinkzZ**")
-                                    capp = str(message.file.title)
+                                    capp = str(message.text)
                                     #━━━━━━━━━━━━━━━━\n🔘 @Ullu_Tamil\n🔘 @Tamil_Seriesz\n🔘 @HEVC_Moviesz\n🔘 @Tv_Web_Seriesz\n🔘 @Tamil_Old_Flims\n🔘 @Tamil_SerialsHD\n🔘 @Tamil_Cinebytes\n🔘 @Tamil_Paadalgal\n🔘 @Streaming_Moviez\n🔘 @Tamil_DUB_Movies\n🔘 @Actors_Filmography\n🔘 @Tamil_Programs_All\n🔘 @Tamil_BluRay_Movies\n🔘 @Tamil_4K_VideoSongs\n🔘 @Cook_With_Comali_Tamil\n➠ Group : 🎯\n💬 @Discussion_HD_Movies 💬\n━━━━━━━━━━━━━━━━━━━\n➠ Click Here More Channels\n       🌐 @Tamil_LinkzZ 🌐
                                     await client.send_file(tochat, message.document, caption = capp)
                                     try:
