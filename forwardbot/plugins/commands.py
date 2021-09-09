@@ -14,7 +14,7 @@ sudo_users = Config.SUDO_USERS
 @forwardbot_cmd("start", is_args=False)
 async def start(event):
     if not await is_sudo(event):
-        await event.respond("You are not authorized to use this Bot. Create your own.")
+        await event.respond("**Hello, {firstname},\nJust Go Away U Won't Get Me*")
         return
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
