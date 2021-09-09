@@ -18,8 +18,7 @@ async def start(event):
         return
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
-    await event.respond(message=f"**Hello, {firstname}, I Am Batch Forwarder Bot.** \n**Using me you can forward all the files in a channel to anothor easily** \n**USE AT OWN RISK !!!!! ACCOUNT MAY GET BAN**"
-                     )
+    await event.respond(message=f"**Hello, {firstname},\nJust Go Away U Won't Get Me**")
 
 
 
