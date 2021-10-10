@@ -4,7 +4,10 @@ from forwardbot import client
 from forwardbot.utils import is_sudo
 from forwardbot.tool import *
 from telethon import Button
+from telethon.errors import FloodWait
+
 import asyncio
+import re
 from forwardbot.utils import forwardbot_cmd
 import datetime
 from datetime import timedelta
@@ -165,8 +168,9 @@ async def handler(event):
                                     cap = str(f"**{fileename}")
                                     
                                     #capp = str(mess + "**\n\n━━━━━━━━━━━━━━━━\n🔘 @Ullu_Tamil\n🔘 @Tamil_Seriesz\n🔘 @HEVC_Moviesz\n🔘 @Tv_Web_Seriesz\n🔘 @Tamil_Old_Flims\n🔘 @Tamil_SerialsHD\n🔘 @Tamil_Cinebytes\n🔘 @Tamil_Paadalgal\n🔘 @Streaming_Moviez\n🔘 @Tamil_DUB_Movies\n🔘 @Actors_Filmography\n🔘 @Tamil_Programs_All\n🔘 @Tamil_BluRay_Movies\n🔘 @Tamil_4K_VideoSongs\n🔘 @Cook_With_Comali_Tamil\n➠ Group : 🎯\n💬 @Discussion_HD_Movies 💬\n━━━━━━━━━━━━━━━━━━━\n➠ Click Here More Channels\n       🌐 @Tamil_LinkzZ 🌐**")
-                                    
-                                    await client.send_file(tochat, message.document, caption = str(message.file.name))
+                                    caption = (str(message.file.name)).replace('_', '')
+                                    caption = re.sub('@[^\s]+', '', caption)
+                                    await client.send_file(tochat, message.document, caption = caption)
                                     try:
                                         if len(str(message.file.name)) <= 95:
                                             print("Succesfully forwarded: " + str(message.file.name))
@@ -205,15 +209,17 @@ async def handler(event):
                                             status.remove("2")
                                         except:
                                             pass
-                                        await asyncio.sleep(2)
+                                        await asyncio.sleep(1)
                                         mcount -= 1
                                         count -= 1
                                         MessageCount += 1
                                         await m.edit(f"Now Forwarding {type}.")
-                                    except:
-                                        pass
+                                    except FloodWait as f:
+                                        await asyncio.sleep(f.x)
+                                
                             except:
                                 pass
+                               
                     else:
                         print(f"You have send {MessageCount} messages" )
                         print("Waiting for 10 mins")
