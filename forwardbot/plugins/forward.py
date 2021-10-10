@@ -4,7 +4,6 @@ from forwardbot import client
 from forwardbot.utils import is_sudo
 from forwardbot.tool import *
 from telethon import Button
-from telethon.errors import FloodWait
 
 import asyncio
 import re
@@ -214,8 +213,8 @@ async def handler(event):
                                         count -= 1
                                         MessageCount += 1
                                         await m.edit(f"Now Forwarding {type}.")
-                                    except FloodWait as f:
-                                        await asyncio.sleep(f.x)
+                                    except:
+                                        pass
                                 
                             except:
                                 pass
