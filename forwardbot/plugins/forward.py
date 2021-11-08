@@ -170,7 +170,7 @@ async def handler(event):
                                     caption = (str(message.text))
                                     caption = re.sub('@[^\s]+', '', caption)
                                    
-                                    await client.send_file(tochat, message.document, caption = caption)
+                                    await client.send_file(tochat, message.document, caption = cap)
                                     try:
                                         if len(str(message.file.name)) <= 95:
                                             print("Succesfully forwarded: " + str(message))
